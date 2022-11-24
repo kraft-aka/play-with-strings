@@ -3,6 +3,7 @@ const reverseBtn = document.querySelector("#reverseBtn");
 const countChars = document.querySelector("#count");
 //const createEmoji = document.querySelector('#convertToEmoji');
 const changeCase = document.querySelector("#changeCase");
+const genRandomStr = document.querySelector("#generateRandomString");
 const p = document.querySelector("#para");
 
 const reverseString = (e) => {
@@ -33,7 +34,21 @@ const countInputChars = (e) => {
   p.innerHTML = `The total number of characters: ${count}.`;
 };
 
+// Generates a new random string from a given message
+const generateRandomStr = () => {
+  let txt = msg.value;
+  let newWord = new Array();
+
+  for (let i = 0; i < txt.length; i++) {
+    let randomIndex = Math.floor(Math.random() * txt.length);
+    newWord.push(txt.charAt(randomIndex));
+  }
+  newWord = newWord.join("");
+  p.innerHTML = newWord;
+};
+
 msg.addEventListener("change", reverseString);
 reverseBtn.addEventListener("click", reverseString);
 countChars.addEventListener("click", countInputChars);
 changeCase.addEventListener("click", changeTextCase);
+genRandomStr.addEventListener("click", generateRandomStr);
