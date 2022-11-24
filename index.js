@@ -4,6 +4,7 @@ const countChars = document.querySelector("#count");
 //const createEmoji = document.querySelector('#convertToEmoji');
 const changeCase = document.querySelector("#changeCase");
 const genRandomStr = document.querySelector("#generateRandomString");
+const toUnicodeBtn = document.querySelector("#toUnicode");
 const p = document.querySelector("#para");
 
 const reverseString = (e) => {
@@ -47,8 +48,26 @@ const generateRandomStr = () => {
   p.innerHTML = newWord;
 };
 
+// Converts the strings to unicode
+const toUnicode = () => {
+  let str = msg.value;
+
+  str = str
+    .split("")
+    .map((ch) => addZeros(ch.charCodeAt(0).toString(16)))
+    .join("");
+  p.innerHTML = str;
+};
+
+function addZeros(str) {
+  return ("0000" + str).slice(-4);
+}
+
+console.log(toUnicode("hello"));
+
 msg.addEventListener("change", reverseString);
 reverseBtn.addEventListener("click", reverseString);
 countChars.addEventListener("click", countInputChars);
 changeCase.addEventListener("click", changeTextCase);
 genRandomStr.addEventListener("click", generateRandomStr);
+toUnicodeBtn.addEventListener("click", toUnicode);
