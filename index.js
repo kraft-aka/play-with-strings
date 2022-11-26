@@ -5,6 +5,7 @@ const countChars = document.querySelector("#count");
 const changeCase = document.querySelector("#changeCase");
 const genRandomStr = document.querySelector("#generateRandomString");
 const toUnicodeBtn = document.querySelector("#toUnicode");
+const changeStyleBtn = document.querySelector('#changeStyle');
 const p = document.querySelector("#para");
 
 const reverseString = (e) => {
@@ -63,7 +64,17 @@ function addZeros(str) {
   return ("0000" + str).slice(-4);
 }
 
-console.log(toUnicode("hello"));
+// changes style of txt
+const changeStyle = (e) => {
+  e.preventDefault();
+  
+  p.innerHTML = msg.value;
+  p.style.color = 'Red';
+  p.style.backgroundColor = 'lightgrey'
+  p.style.fontSize = '24px';
+  p.style.fontWeight = '700'
+
+}
 
 msg.addEventListener("change", reverseString);
 reverseBtn.addEventListener("click", reverseString);
@@ -71,3 +82,5 @@ countChars.addEventListener("click", countInputChars);
 changeCase.addEventListener("click", changeTextCase);
 genRandomStr.addEventListener("click", generateRandomStr);
 toUnicodeBtn.addEventListener("click", toUnicode);
+changeStyleBtn.addEventListener('click', changeStyle);
+
