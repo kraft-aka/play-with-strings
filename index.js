@@ -32,7 +32,7 @@ const changeTextCase = () => {
 const countInputChars = (e) => {
   e.preventDefault();
   let txt = msg.value;
-  let count = txt.replace(/ /g,'').split("").length;
+  let count = txt.replace(/ /g, '').split("").length;
   p.innerHTML = `The total number of characters: ${count}.`;
 };
 
@@ -67,12 +67,8 @@ function addZeros(str) {
 // changes style of txt
 const changeStyle = (e) => {
   e.preventDefault();
-  
   p.innerHTML = msg.value;
-  p.style.color = 'Red';
-  p.style.backgroundColor = 'lightgrey'
-  p.style.fontSize = '24px';
-  p.style.fontWeight = '700'
+  p.classList.add('change-class')
 
 }
 

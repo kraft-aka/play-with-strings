@@ -6,25 +6,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <form action="">
-    <textarea name="message" id="msg" cols="30" rows="10" placeholder="type your messsage" value=""></textarea>
-  </form>
-  <div class="container-btns">
-    <button id="sendBtn">Send</button>
-    <button id="reverseBtn">Revert message</button>
-    <button id="count">Count letters</button>
-    <button id="convertToEmoji">Create Emoji</button>
-    <button id="changeCase">Change Case</button>
-    <button id="generateRandomString">Generate Ranodom String</button>
-    <button id="toUnicode">Turn message to Unicode</button>
-    <button id="changeStyle">Change Style of Message</button>
-  </div>
+  <main>
+    <h1>Type some text and play around</h1>
+    <form action="">
+      <textarea name="message" id="msg" cols="30" rows="10" placeholder="type your messsage" value=""></textarea>
+    </form>
+    <div class="container-btns">
+      <button id="sendBtn">Send</button>
+      <button id="reverseBtn">Revert message</button>
+      <button id="count">Count letters</button>
+      <button id="convertToEmoji">Create Emoji</button>
+      <button id="changeCase">Change Case</button>
+      <button id="generateRandomString">Generate Ranodom String</button>
+      <button id="toUnicode">Turn message to Unicode</button>
+      <button id="changeStyle">Change Style of Message</button>
+      <button id="countWords">Count Words</button>
+    </div>
 
 
-  <p id="para"></p>
+    <p id="para"></p>
+  </main>
+
 
   <script src="index.js"> </script>
 </body>

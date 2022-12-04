@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #DBC2CF;
+  color: #16262E;
+  font-family: 'Neucha', cursive;
+}
+
+main {
+  display: block;
+  margin: 50px auto;
+  max-width: 600px;
+  align-items: center;
+}
+
+
+/* Typography */
+
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+h1:hover {
+  transform: rotate(3deg);
+  transform: scale(1.1, 1.1);
+}
+
+p {
+  font-size: 18px;
+}
+
+/* Textarea */
+
+textarea {
+  width: 600px;
+  height: auto;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  margin: 15px 0;
+  box-shadow: 5px 5px 15px rgba(25,1,150,0.1);
+}
+
+/* Buttons */
+
+.container-btns {
+  width: 600px;
+  height: auto;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content:center;
+}
+
+button {
+  padding: 10px 25px;
+  background-color: #3C7A89;
+  border: none;
+  border-radius: 3px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-weight: 900;
+  transition: all .4s ease-in-out;
+
+}
+
+button:hover, button:focus {
+  background-color: orange;
+  cursor: pointer;
+}
+
+/* print */
+#para {
+  display: block;
+  max-width: 600px;
+  height: auto;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* style manipulation */
+.change-class {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #2E4756;
+}
