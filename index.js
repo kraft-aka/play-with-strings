@@ -32,7 +32,7 @@ const changeTextCase = () => {
 const countInputChars = (e) => {
   e.preventDefault();
   let txt = msg.value;
-  let count = txt.trim().split("").length;
+  let count = txt.replace(/ /g,'').split("").length;
   p.innerHTML = `The total number of characters: ${count}.`;
 };
 
