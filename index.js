@@ -7,8 +7,9 @@ const countChars = document.querySelector("#count");
 const changeCase = document.querySelector("#changeCase");
 const genRandomStr = document.querySelector("#generateRandomString");
 const toUnicodeBtn = document.querySelector("#toUnicode");
-const changeStyleBtn = document.querySelector('#changeStyle');
-const countWordsBtn = document.querySelector('#countWords');
+const changeStyleBtn = document.querySelector("#changeStyle");
+const countWordsBtn = document.querySelector("#countWords");
+const sendBtn = document.querySelector("#sendBtn");
 
 // output paragraph
 const p = document.querySelector("#para");
@@ -37,7 +38,7 @@ const changeTextCase = () => {
 const countInputChars = (e) => {
   e.preventDefault();
   let txt = msg.value;
-  let count = txt.replace(/ /g, '').split("").length;
+  let count = txt.replace(/ /g, "").split("").length;
   p.innerHTML = `The total number of characters: ${count}.`;
 };
 
@@ -73,16 +74,22 @@ function addZeros(str) {
 const changeStyle = (e) => {
   e.preventDefault();
   p.innerHTML = msg.value;
-  p.classList.add('change-class')
-
-}
+  p.classList.add("change-class");
+};
 
 // count words
 const countWords = () => {
   const str = msg.value;
-  const newStr = str.replace(/\s+/g, ' ').trim().split(' ').length;
-  p.innerHTML = `You typed: ${newStr} words.`
-}
+  const newStr = str.replace(/\s+/g, " ").trim().split(" ").length;
+  p.innerHTML = `You typed: ${newStr} words.`;
+};
+
+// send message
+const sendMsg = (e) => {
+  e.preventDefault();
+  alert("message has been sent: " + msg.value);
+  msg.value = "";
+};
 
 msg.addEventListener("change", reverseString);
 reverseBtn.addEventListener("click", reverseString);
@@ -90,6 +97,6 @@ countChars.addEventListener("click", countInputChars);
 changeCase.addEventListener("click", changeTextCase);
 genRandomStr.addEventListener("click", generateRandomStr);
 toUnicodeBtn.addEventListener("click", toUnicode);
-changeStyleBtn.addEventListener('click', changeStyle);
-countWordsBtn.addEventListener('click', countWords);
-
+changeStyleBtn.addEventListener("click", changeStyle);
+countWordsBtn.addEventListener("click", countWords);
+sendBtn.addEventListener("click", sendMsg);
