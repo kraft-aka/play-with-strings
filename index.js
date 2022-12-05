@@ -1,4 +1,6 @@
 const msg = document.querySelector("#msg");
+
+// Buttons
 const reverseBtn = document.querySelector("#reverseBtn");
 const countChars = document.querySelector("#count");
 //const createEmoji = document.querySelector('#convertToEmoji');
@@ -6,6 +8,9 @@ const changeCase = document.querySelector("#changeCase");
 const genRandomStr = document.querySelector("#generateRandomString");
 const toUnicodeBtn = document.querySelector("#toUnicode");
 const changeStyleBtn = document.querySelector('#changeStyle');
+const countWordsBtn = document.querySelector('#countWords');
+
+// output paragraph
 const p = document.querySelector("#para");
 
 const reverseString = (e) => {
@@ -72,6 +77,13 @@ const changeStyle = (e) => {
 
 }
 
+// count words
+const countWords = () => {
+  const str = msg.value;
+  const newStr = str.replace(/\s+/g, ' ').trim().split(' ').length;
+  p.innerHTML = `You typed: ${newStr} words.`
+}
+
 msg.addEventListener("change", reverseString);
 reverseBtn.addEventListener("click", reverseString);
 countChars.addEventListener("click", countInputChars);
@@ -79,4 +91,5 @@ changeCase.addEventListener("click", changeTextCase);
 genRandomStr.addEventListener("click", generateRandomStr);
 toUnicodeBtn.addEventListener("click", toUnicode);
 changeStyleBtn.addEventListener('click', changeStyle);
+countWordsBtn.addEventListener('click', countWords);
 
