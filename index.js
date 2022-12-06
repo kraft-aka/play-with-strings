@@ -1,4 +1,5 @@
 const msg = document.querySelector("#msg");
+const errorMsg = document.querySelector('#error-msg');
 
 // Buttons
 const reverseBtn = document.querySelector("#reverseBtn");
@@ -14,7 +15,11 @@ const sendBtn = document.querySelector("#sendBtn");
 // output paragraph
 const p = document.querySelector("#para");
 
+//modal 
+let modalContainer = document.querySelector('#myModal');
+
 const reverseString = (e) => {
+  errorMsg.innerText = '';
   let inputStr = msg.value;
   e.preventDefault();
 
@@ -31,12 +36,14 @@ const print = (reverseMsg) => {
 };
 
 const changeTextCase = () => {
+  errorMsg.innerText = '';
   let txt = msg.value;
   p.innerHTML = txt.toUpperCase();
 };
 
 const countInputChars = (e) => {
   e.preventDefault();
+  errorMsg.innerText = '';
   let txt = msg.value;
   let count = txt.replace(/ /g, "").split("").length;
   p.innerHTML = `The total number of characters: ${count}.`;
@@ -44,6 +51,7 @@ const countInputChars = (e) => {
 
 // Generates a new random string from a given message
 const generateRandomStr = () => {
+  errorMsg.innerText = '';
   let txt = msg.value;
   let newWord = new Array();
 
@@ -57,6 +65,7 @@ const generateRandomStr = () => {
 
 // Converts the strings to unicode
 const toUnicode = () => {
+  errorMsg.innerText = '';
   let str = msg.value;
 
   str = str
@@ -72,6 +81,7 @@ function addZeros(str) {
 
 // changes style of txt
 const changeStyle = (e) => {
+  errorMsg.innerText = '';
   e.preventDefault();
   p.innerHTML = msg.value;
   p.classList.add("change-class");
@@ -79,6 +89,7 @@ const changeStyle = (e) => {
 
 // count words
 const countWords = () => {
+  errorMsg.innerText = '';
   const str = msg.value;
   const newStr = str.replace(/\s+/g, " ").trim().split(" ").length;
   p.innerHTML = `You typed: ${newStr} words.`;
@@ -86,15 +97,50 @@ const countWords = () => {
 
 // send message
 const sendMsg = (e) => {
+  errorMsg.innerText = '';
   e.preventDefault();
-  if (msg.value.length <= 0) {
-    alert('empty')} else {
-      alert('message hs been sent: ' + msg.value)
-    };
+  msg.value.length <= 0 ? errorMsg.innerText = 'Empty message can not be sent out! Please write something.' : showModal(msg.value);
   msg.value = "";
   p.innerHTML = '';
 };
 
+// show modal
+const showModal=(txt) => {
+  modalContainer.style.display = 'block';
+  modalContent.innerText = msg.value;
+  
+}
+
+// hide modal
+const hideModal = () => {
+  errorMsg.innerText = '';
+  setTimeout(()=> {
+    modalContainer.style.display = 'none';
+  }, 1000);
+}
+
+// modal 
+const modalDiv = document.createElement('div');
+modalDiv.classList.add('modal-content');
+
+// modal title
+const modalTitle = document.createElement('h2');
+modalTitle.innerText = 'Modal';
+
+// modal content
+const modalContent = document.createElement('p');
+
+//close button
+const modalCloseBtn = document.createElement('button');
+modalCloseBtn.classList.add('modal-close');
+modalCloseBtn.innerText = 'close';
+
+modalDiv.appendChild(modalTitle);
+modalDiv.appendChild(modalContent);
+modalDiv.appendChild(modalCloseBtn);
+modalContainer.appendChild(modalDiv);
+
+// events
 msg.addEventListener("change", reverseString);
 reverseBtn.addEventListener("click", reverseString);
 countChars.addEventListener("click", countInputChars);
@@ -103,4 +149,6 @@ genRandomStr.addEventListener("click", generateRandomStr);
 toUnicodeBtn.addEventListener("click", toUnicode);
 changeStyleBtn.addEventListener("click", changeStyle);
 countWordsBtn.addEventListener("click", countWords);
-sendBtn.addEventListener("click", sendMsg);
+//sendBtn.addEventListener("click", sendMsg);
+sendBtn.addEventListener('click', sendMsg);
+modalCloseBtn.addEventListener('click', hideModal);
