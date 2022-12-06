@@ -1,5 +1,5 @@
 const msg = document.querySelector("#msg");
-const errorMsg = document.querySelector('#error-msg');
+const errorMsg = document.querySelector("#error-msg");
 
 // Buttons
 const reverseBtn = document.querySelector("#reverseBtn");
@@ -15,11 +15,12 @@ const sendBtn = document.querySelector("#sendBtn");
 // output paragraph
 const p = document.querySelector("#para");
 
-//modal 
-let modalContainer = document.querySelector('#myModal');
+//modal
+let modalContainer = document.querySelector("#myModal");
 
+// reverse string
 const reverseString = (e) => {
-  errorMsg.innerText = '';
+  errorMsg.innerText = "";
   let inputStr = msg.value;
   e.preventDefault();
 
@@ -31,19 +32,22 @@ const reverseString = (e) => {
   print(newString);
 };
 
+// print reversed string
 const print = (reverseMsg) => {
   p.innerHTML = reverseMsg;
 };
 
+// change case
 const changeTextCase = () => {
-  errorMsg.innerText = '';
+  errorMsg.innerText = "";
   let txt = msg.value;
   p.innerHTML = txt.toUpperCase();
 };
 
+// count chars in string
 const countInputChars = (e) => {
   e.preventDefault();
-  errorMsg.innerText = '';
+  errorMsg.innerText = "";
   let txt = msg.value;
   let count = txt.replace(/ /g, "").split("").length;
   p.innerHTML = `The total number of characters: ${count}.`;
@@ -51,7 +55,7 @@ const countInputChars = (e) => {
 
 // Generates a new random string from a given message
 const generateRandomStr = () => {
-  errorMsg.innerText = '';
+  errorMsg.innerText = "";
   let txt = msg.value;
   let newWord = new Array();
 
@@ -65,7 +69,7 @@ const generateRandomStr = () => {
 
 // Converts the strings to unicode
 const toUnicode = () => {
-  errorMsg.innerText = '';
+  errorMsg.innerText = "";
   let str = msg.value;
 
   str = str
@@ -81,7 +85,7 @@ function addZeros(str) {
 
 // changes style of txt
 const changeStyle = (e) => {
-  errorMsg.innerText = '';
+  errorMsg.innerText = "";
   e.preventDefault();
   p.innerHTML = msg.value;
   p.classList.add("change-class");
@@ -89,7 +93,7 @@ const changeStyle = (e) => {
 
 // count words
 const countWords = () => {
-  errorMsg.innerText = '';
+  errorMsg.innerText = "";
   const str = msg.value;
   const newStr = str.replace(/\s+/g, " ").trim().split(" ").length;
   p.innerHTML = `You typed: ${newStr} words.`;
@@ -97,43 +101,45 @@ const countWords = () => {
 
 // send message
 const sendMsg = (e) => {
-  errorMsg.innerText = '';
+  errorMsg.innerText = "";
   e.preventDefault();
-  msg.value.length <= 0 ? errorMsg.innerText = 'Empty message can not be sent out! Please write something.' : showModal(msg.value);
+  msg.value.length <= 0
+    ? (errorMsg.innerText =
+        "Empty message can not be sent out! Please write something.")
+    : showModal(msg.value);
   msg.value = "";
-  p.innerHTML = '';
+  p.innerHTML = "";
 };
 
 // show modal
-const showModal=(txt) => {
-  modalContainer.style.display = 'block';
+const showModal = (txt) => {
+  modalContainer.style.display = "block";
   modalContent.innerText = msg.value;
-  
-}
+};
 
 // hide modal
 const hideModal = () => {
-  errorMsg.innerText = '';
-  setTimeout(()=> {
-    modalContainer.style.display = 'none';
+  errorMsg.innerText = "";
+  setTimeout(() => {
+    modalContainer.style.display = "none";
   }, 1000);
-}
+};
 
-// modal 
-const modalDiv = document.createElement('div');
-modalDiv.classList.add('modal-content');
+// modal
+const modalDiv = document.createElement("div");
+modalDiv.classList.add("modal-content");
 
 // modal title
-const modalTitle = document.createElement('h2');
-modalTitle.innerText = 'Modal';
+const modalTitle = document.createElement("h2");
+modalTitle.innerText = "Modal";
 
 // modal content
-const modalContent = document.createElement('p');
+const modalContent = document.createElement("p");
 
 //close button
-const modalCloseBtn = document.createElement('button');
-modalCloseBtn.classList.add('modal-close');
-modalCloseBtn.innerText = 'close';
+const modalCloseBtn = document.createElement("button");
+modalCloseBtn.classList.add("modal-close");
+modalCloseBtn.innerText = "close";
 
 modalDiv.appendChild(modalTitle);
 modalDiv.appendChild(modalContent);
@@ -150,5 +156,5 @@ toUnicodeBtn.addEventListener("click", toUnicode);
 changeStyleBtn.addEventListener("click", changeStyle);
 countWordsBtn.addEventListener("click", countWords);
 //sendBtn.addEventListener("click", sendMsg);
-sendBtn.addEventListener('click', sendMsg);
-modalCloseBtn.addEventListener('click', hideModal);
+sendBtn.addEventListener("click", sendMsg);
+modalCloseBtn.addEventListener("click", hideModal);
