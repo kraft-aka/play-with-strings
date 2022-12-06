@@ -6,20 +6,23 @@ body {
   background-color: #DBC2CF;
   color: #16262E;
   font-family: 'Neucha', cursive;
+  font-size: 18px;
 }
 
 main {
   display: block;
-  margin: 50px auto;
+  margin: 0 auto;
   max-width: 600px;
-  align-items: center;
+  width: 90%;
+  height: 100vh;
+  border: 1px solid salmon;
 }
 
 
 /* Typography */
 
 h1 {
-  font-size: 36px;
+  font-size: 2rem;
   font-weight: 700;
 }
 
@@ -29,32 +32,35 @@ h1:hover {
 }
 
 p {
-  font-size: 18px;
+  font-size: 1rem;
 }
 
 /* Textarea */
 
 textarea {
-  width: 600px;
+  width: 100%;
   height: auto;
-  border-radius: 5px;
+  border-radius: .3rem;
   border: none;
   outline: none;
-  padding: 10px;
-  margin: 15px 0;
+  padding: .8rem;
+  margin: 1rem 0;
   box-shadow: 5px 5px 15px rgba(25,1,150,0.1);
 }
 
 /* Buttons */
 
 .container-btns {
-  width: 600px;
+  width: 100%;
+  max-width: 400px;
   height: auto;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content:center;
+  justify-content:space-evenly;
+  border: 1px solid red;
+  margin: 0 auto;
 }
 
 button {
@@ -79,6 +85,7 @@ button:hover, button:focus {
 /* print */
 #para {
   display: block;
+  width: 100%;
   max-width: 600px;
   height: auto;
   background-color: #fff;

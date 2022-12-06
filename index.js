@@ -87,8 +87,12 @@ const countWords = () => {
 // send message
 const sendMsg = (e) => {
   e.preventDefault();
-  alert("message has been sent: " + msg.value);
+  if (msg.value.length <= 0) {
+    alert('empty')} else {
+      alert('message hs been sent: ' + msg.value)
+    };
   msg.value = "";
+  p.innerHTML = '';
 };
 
 msg.addEventListener("change", reverseString);
