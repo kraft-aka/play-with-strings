@@ -11,6 +11,7 @@ const toUnicodeBtn = document.querySelector("#toUnicode");
 const changeStyleBtn = document.querySelector("#changeStyle");
 const countWordsBtn = document.querySelector("#countWords");
 const sendBtn = document.querySelector("#sendBtn");
+const sortBtn = document.querySelector("#sortCharacters");
 
 // output paragraph
 const p = document.querySelector("#para");
@@ -146,6 +147,11 @@ modalDiv.appendChild(modalContent);
 modalDiv.appendChild(modalCloseBtn);
 modalContainer.appendChild(modalDiv);
 
+// sort characters
+const sortedChars = () => {
+  p.innerText = msg.value.toLowerCase().trim().split("").sort().join("");
+};
+
 // events
 msg.addEventListener("change", reverseString);
 reverseBtn.addEventListener("click", reverseString);
@@ -158,3 +164,4 @@ countWordsBtn.addEventListener("click", countWords);
 //sendBtn.addEventListener("click", sendMsg);
 sendBtn.addEventListener("click", sendMsg);
 modalCloseBtn.addEventListener("click", hideModal);
+sortBtn.addEventListener("click", sortedChars);
